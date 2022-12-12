@@ -43,8 +43,4 @@ class Task extends Equatable {
   // ignore: todo
   // TODO: implement props
   List<Object?> get props => [title, isDone, isDeleted];
-
-  // String toJson() => json.encode(toMap());
-
-  // factory Task.fromJson(String source) => Task.fromMap(json.decode(source));
 }

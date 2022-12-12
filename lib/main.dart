@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       create: (_) => TasksBloc(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
+        title: 'Flutter Bloc Tasks App',
         theme: ThemeData(primarySwatch: Colors.teal),
         home: const TasksScreen(),
       ),
