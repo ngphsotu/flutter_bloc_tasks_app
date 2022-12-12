@@ -15,18 +15,20 @@ class Task extends Equatable {
   Task copyWith({String? title, String? id, bool? isDone, bool? isDeleted}) {
     return Task(
       title: title ?? this.title,
+      id: id ?? this.id,
       isDone: isDone ?? this.isDone,
       isDeleted: isDeleted ?? this.isDeleted,
     );
   }
 
   Map<String, dynamic> toMap() {
-    return {'title': title, 'isDone': isDone, 'isDeleted': isDeleted};
+    return {'title': title, 'id': id, 'isDone': isDone, 'isDeleted': isDeleted};
   }
 
   factory Task.fromMap(Map<String, dynamic> map) {
     return Task(
       title: map['title'],
+      id: map['id'],
       isDone: map['isDone'],
       isDeleted: map['isDeleted'],
     );
@@ -35,5 +37,5 @@ class Task extends Equatable {
   @override
   // ignore: todo
   // TODO: implement props
-  List<Object?> get props => [title, isDone, isDeleted];
+  List<Object?> get props => [title, id, isDone, isDeleted];
 }
