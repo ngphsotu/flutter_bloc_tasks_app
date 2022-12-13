@@ -16,35 +16,36 @@ class TrashScreen extends StatefulWidget {
 class _TrashScreenState extends State<TrashScreen> {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<TasksBloc, TasksState>(builder: (context, state) {
-      return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.green,
-          title: const Text('Trash'),
-          // actions: [
-          //   IconButton(
-          //     onPressed: () {},
-          //     icon: const Icon(Icons.add),
-          //   ),
-          // ],
-          // leading: const BackButton(),
-        ),
-        drawer: const MyDrawer(),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Center(
-              child: Chip(
-                label:
-                    state.removedTasks.isEmpty || state.removedTasks.length == 1
-                        ? const Text('Empty')
-                        : Text('${state.removedTasks.length} Tasks Deleted'),
+    return BlocBuilder<TasksBloc, TasksState>(
+      builder: (context, state) {
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text('Trash'),
+            // actions: [
+            //   IconButton(
+            //     onPressed: () {},
+            //     icon: const Icon(Icons.add),
+            //   ),
+            // ],
+            // leading: const BackButton(),
+          ),
+          drawer: const MyDrawer(),
+          body: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Center(
+                child: Chip(
+                  label: state.removedTasks.isEmpty ||
+                          state.removedTasks.length == 1
+                      ? Text('${state.removedTasks.length} Task Deleted')
+                      : Text('${state.removedTasks.length} Tasks Deleted'),
+                ),
               ),
-            ),
-            TasksList(taskslist: state.removedTasks),
-          ],
-        ),
-      );
-    });
+              TasksList(taskslist: state.removedTasks),
+            ],
+          ),
+        );
+      },
+    );
   }
 }

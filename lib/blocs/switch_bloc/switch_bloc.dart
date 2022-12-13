@@ -19,13 +19,13 @@ class SwitchBloc extends HydratedBloc<SwitchEvent, SwitchState> {
   SwitchState? fromJson(Map<String, dynamic> json) {
     // ignore: todo
     // TODO: implement fromJson
-    throw UnimplementedError();
+    return SwitchState.fromMap(json);
   }
 
   @override
   Map<String, dynamic>? toJson(SwitchState state) {
     // ignore: todo
     // TODO: implement toJson
-    throw UnimplementedError();
+    return state.toMap();
   }
 }
