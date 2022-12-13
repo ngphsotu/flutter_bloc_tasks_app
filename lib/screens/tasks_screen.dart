@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc_tasks_app/screens/my_drawer.dart';
 
 import '/models/task.dart';
 import 'add_task_screen.dart';
@@ -7,6 +8,8 @@ import '/blocs/bloc_exports.dart';
 
 class TasksScreen extends StatefulWidget {
   const TasksScreen({super.key});
+
+  static const id = 'tasks_screen';
 
   @override
   State<TasksScreen> createState() => _TasksScreenState();
@@ -41,12 +44,15 @@ class _TasksScreenState extends State<TasksScreen> {
             ),
           ],
         ),
+        drawer: const MyDrawer(),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Center(
+            Center(
               child: Chip(
-                label: Text('Tasks:'),
+                label: state.allTasks.isEmpty || state.allTasks.length == 1
+                    ? Text('${state.allTasks.length} Task')
+                    : Text('${state.allTasks.length} Tasks'),
               ),
             ),
             TasksList(taskslist: taskslist),
