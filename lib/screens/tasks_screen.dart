@@ -51,7 +51,7 @@ class _TasksScreenState extends State<TasksScreen> {
             Center(
               child: Chip(
                 label: state.allTasks.isEmpty || state.allTasks.length == 1
-                    ? Text('${state.allTasks.length} Task')
+                    ? const Text('Empty')
                     : Text('${state.allTasks.length} Tasks'),
               ),
             ),

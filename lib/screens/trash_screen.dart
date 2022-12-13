@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
 
-import '../blocs/bloc_exports.dart';
-import '../widgets/tasks_list.dart';
 import 'my_drawer.dart';
+import '/blocs/bloc_exports.dart';
+import '/widgets/tasks_list.dart';
 
-class RecycleBin extends StatefulWidget {
-  const RecycleBin({super.key});
+class TrashScreen extends StatefulWidget {
+  const TrashScreen({super.key});
 
   static const id = 'recycle_bin_screen';
 
   @override
-  State<RecycleBin> createState() => _RecycleBinState();
+  State<TrashScreen> createState() => _TrashScreenState();
 }
 
-class _RecycleBinState extends State<RecycleBin> {
+class _TrashScreenState extends State<TrashScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<TasksBloc, TasksState>(builder: (context, state) {
       return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.green,
-          title: const Text('Recycle Bin'),
+          title: const Text('Trash'),
           // actions: [
           //   IconButton(
           //     onPressed: () {},
@@ -37,7 +37,7 @@ class _RecycleBinState extends State<RecycleBin> {
               child: Chip(
                 label:
                     state.removedTasks.isEmpty || state.removedTasks.length == 1
-                        ? Text('${state.removedTasks.length} Task Deleted')
+                        ? const Text('Empty')
                         : Text('${state.removedTasks.length} Tasks Deleted'),
               ),
             ),
