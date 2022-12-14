@@ -19,9 +19,9 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key, required this.appRouter});
-
   final AppRouter appRouter;
+
+  const MyApp({super.key, required this.appRouter});
 
   @override
   Widget build(BuildContext context) {

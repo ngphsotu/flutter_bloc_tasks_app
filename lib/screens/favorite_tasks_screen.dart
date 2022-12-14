@@ -5,9 +5,9 @@ import '/widgets/tasks_list.dart';
 import '/blocs/bloc_exports.dart';
 
 class FavoriteTasksScreen extends StatelessWidget {
-  const FavoriteTasksScreen({super.key});
-
   static const id = 'favorite_tasks_screen';
+
+  const FavoriteTasksScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

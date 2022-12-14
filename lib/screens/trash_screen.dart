@@ -6,9 +6,9 @@ import '/blocs/bloc_exports.dart';
 import '/widgets/tasks_list.dart';
 
 class TrashScreen extends StatefulWidget {
-  const TrashScreen({super.key});
+  static const id = 'trash_screen';
 
-  static const id = 'recycle_bin_screen';
+  const TrashScreen({super.key});
 
   @override
   State<TrashScreen> createState() => _TrashScreenState();
@@ -21,7 +21,19 @@ class _TrashScreenState extends State<TrashScreen> {
       builder: (context, state) {
         List<Task> taskslist = state.removedTasks;
         return Scaffold(
-          appBar: AppBar(title: const Text('Trash')),
+          appBar: AppBar(
+            title: const Text('Trash'),
+            actions: [
+              PopupMenuItem(
+                onTap: () => context.read<TasksBloc>().add(DeleteAllTask()),
+                child: TextButton.icon(
+                  onPressed: null,
+                  icon: const Icon(Icons.delete_forever),
+                  label: const Text('Delete all tasks'),
+                ),
+              ),
+            ],
+          ),
           drawer: const MyDrawer(),
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.center,

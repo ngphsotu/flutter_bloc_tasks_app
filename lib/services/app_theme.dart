@@ -11,6 +11,7 @@ class AppThemes {
       dividerColor: const Color(0xff757575),
       primaryColor: Colors.white,
       primarySwatch: Colors.grey,
+      listTileTheme: const ListTileThemeData(iconColor: Colors.black),
       backgroundColor: const Color(0xFFE5E5E5),
       textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
@@ -19,8 +20,8 @@ class AppThemes {
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: Colors.grey,
-        selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.white,
+        selectedItemColor: Colors.pink,
+        unselectedItemColor: Colors.black,
       ),
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
         backgroundColor: Colors.grey,
@@ -35,6 +36,7 @@ class AppThemes {
       dividerColor: Colors.black54,
       primaryColor: Colors.black,
       primarySwatch: Colors.grey,
+      listTileTheme: const ListTileThemeData(iconColor: Colors.white),
       backgroundColor: const Color(0xFF212121),
       textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
@@ -42,11 +44,12 @@ class AppThemes {
         ),
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-        backgroundColor: Colors.grey,
+        backgroundColor: Color.fromRGBO(66, 66, 66, 66),
         unselectedItemColor: Colors.white,
+        selectedItemColor: Colors.greenAccent,
       ),
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
-        backgroundColor: Colors.black54,
+        backgroundColor: Color.fromRGBO(66, 66, 66, 66),
         foregroundColor: Colors.white,
       ),
     ),

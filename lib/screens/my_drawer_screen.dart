@@ -53,17 +53,35 @@ class MyDrawer extends StatelessWidget {
                 );
               },
             ),
-            BlocBuilder<SwitchBloc, SwitchState>(
-              builder: (context, state) {
-                return Switch(
-                  value: state.switchValue,
-                  onChanged: (newvalue) {
-                    newvalue
-                        ? context.read<SwitchBloc>().add(SwitchOnEvent())
-                        : context.read<SwitchBloc>().add(SwitchOffEvent());
-                  },
-                );
-              },
+            const Divider(),
+            Padding(
+              padding: const EdgeInsets.only(left: 17, right: 5),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: const [
+                      Icon(Icons.light_mode),
+                      SizedBox(width: 30),
+                      Text('Light / Dark'),
+                    ],
+                  ),
+                  BlocBuilder<SwitchBloc, SwitchState>(
+                    builder: (context, state) {
+                      return Switch(
+                        value: state.switchValue,
+                        onChanged: (newvalue) {
+                          newvalue
+                              ? context.read<SwitchBloc>().add(SwitchOnEvent())
+                              : context
+                                  .read<SwitchBloc>()
+                                  .add(SwitchOffEvent());
+                        },
+                      );
+                    },
+                  ),
+                ],
+              ),
             ),
           ],
         ),

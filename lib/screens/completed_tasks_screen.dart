@@ -5,9 +5,9 @@ import '/widgets/tasks_list.dart';
 import '/blocs/bloc_exports.dart';
 
 class CompletedTasksScreen extends StatelessWidget {
-  const CompletedTasksScreen({super.key});
-
   static const id = 'completed_tasks_screen';
+
+  const CompletedTasksScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -5,9 +5,9 @@ import '/widgets/tasks_list.dart';
 import '/blocs/bloc_exports.dart';
 
 class PendingTasksScreen extends StatelessWidget {
-  const PendingTasksScreen({super.key});
-
   static const id = 'pending_tasks_screen';
+
+  const PendingTasksScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

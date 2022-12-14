@@ -7,9 +7,9 @@ import 'favorite_tasks_screen.dart';
 import 'completed_tasks_screen.dart';
 
 class TabsScreen extends StatefulWidget {
-  const TabsScreen({super.key});
-
   static const id = 'tabs_screen';
+
+  const TabsScreen({super.key});
 
   @override
   State<TabsScreen> createState() => _TabsScreenState();
@@ -19,18 +19,9 @@ class _TabsScreenState extends State<TabsScreen> {
   var _selectPageIndex = 0;
 
   final List<Map<String, dynamic>> _pageDetails = [
-    {
-      'pageName': const PendingTasksScreen(),
-      'title': 'Pending Tasks',
-    },
-    {
-      'pageName': const CompletedTasksScreen(),
-      'title': 'Completed Tasks',
-    },
-    {
-      'pageName': const FavoriteTasksScreen(),
-      'title': 'Favorite Tasks',
-    }
+    {'pageName': const PendingTasksScreen(), 'title': 'Pending Tasks'},
+    {'pageName': const CompletedTasksScreen(), 'title': 'Completed Tasks'},
+    {'pageName': const FavoriteTasksScreen(), 'title': 'Favorite Tasks'}
   ];
 
   void _addTask(BuildContext context) {
@@ -79,15 +70,15 @@ class _TabsScreenState extends State<TabsScreen> {
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.incomplete_circle_sharp),
-            label: 'Pending Tasks',
+            label: 'Pending',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.done),
-            label: 'Completed Tasks',
+            icon: Icon(Icons.check_circle),
+            label: 'Completed',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.favorite),
-            label: 'Favorite Tasks',
+            label: 'Favorite',
           ),
         ],
       ),

@@ -1,21 +1,24 @@
 import 'package:flutter/material.dart';
 
 import '/models/task.dart';
-import '/services/guid_gen.dart';
 import '/blocs/bloc_exports.dart';
 
-class AddTaskScreen extends StatelessWidget {
-  const AddTaskScreen({super.key});
+class EditTaskScreen extends StatelessWidget {
+  final Task oldTask;
+
+  const EditTaskScreen({super.key, required this.oldTask});
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController titleController = TextEditingController();
-    TextEditingController decriptionController = TextEditingController();
+    TextEditingController titleController =
+        TextEditingController(text: oldTask.title);
+    TextEditingController decriptionController =
+        TextEditingController(text: oldTask.decription);
     return Container(
       padding: const EdgeInsets.all(20),
       child: Column(
         children: [
-          const Text('Add Task', style: TextStyle(fontSize: 24)),
+          const Text('Edit Task', style: TextStyle(fontSize: 24)),
           const SizedBox(height: 10),
           Padding(
             padding: const EdgeInsets.only(top: 10, bottom: 10),
@@ -50,16 +53,21 @@ class AddTaskScreen extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () {
-                  var task = Task(
+                  var editedTask = Task(
                     title: titleController.text,
                     decription: decriptionController.text,
-                    id: GUIDGen.generate(),
+                    id: oldTask.id,
+                    isDone: false,
+                    isFavorite: oldTask.isFavorite,
                     date: DateTime.now().toString(),
                   );
-                  context.read<TasksBloc>().add(AddTask(task: task));
+                  context.read<TasksBloc>().add(EditTask(
+                        oldTask: oldTask,
+                        newTask: editedTask,
+                      ));
                   Navigator.pop(context);
                 },
-                child: const Text('Add'),
+                child: const Text('Save'),
               ),
             ],
           ),
