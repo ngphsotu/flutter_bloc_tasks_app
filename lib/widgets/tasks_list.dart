@@ -14,13 +14,46 @@ class TasksList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: ListView.builder(
-        itemCount: taskslist.length,
-        itemBuilder: (context, index) {
-          var task = taskslist[index];
-          return TaskTitle(task: task);
-        },
+      child: SingleChildScrollView(
+        child: ExpansionPanelList.radio(
+          children: taskslist
+              .map(
+                (task) => ExpansionPanelRadio(
+                  value: task.id,
+                  headerBuilder: (context, isOpen) => TaskTitle(task: task),
+                  body: ListTile(
+                    title: SelectableText.rich(
+                      TextSpan(
+                        children: [
+                          const TextSpan(
+                            text: 'Text\n',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          TextSpan(text: task.title),
+                          const TextSpan(
+                            text: '\n\nDecription\n',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          TextSpan(text: task.decription),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              )
+              .toList(),
+        ),
       ),
     );
   }
 }
+
+//  Expanded(
+//       child: ListView.builder(
+//         itemCount: taskslist.length,
+//         itemBuilder: (context, index) {
+//           var task = taskslist[index];
+//           return TaskTitle(task: task);
+//         },
+//       ),
+//     );
