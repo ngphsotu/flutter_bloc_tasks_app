@@ -23,8 +23,8 @@ class AppThemes {
         unselectedItemColor: Colors.white,
       ),
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
-        backgroundColor: Colors.black,
-        foregroundColor: Colors.white,
+        backgroundColor: Colors.grey,
+        foregroundColor: Colors.black,
       ),
     ),
 
@@ -46,7 +46,8 @@ class AppThemes {
         unselectedItemColor: Colors.white,
       ),
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black54,
+        foregroundColor: Colors.white,
       ),
     ),
   };

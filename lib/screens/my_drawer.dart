@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../blocs/bloc_exports.dart';
+import '/blocs/bloc_exports.dart';
 import '/screens/trash_screen.dart';
 import '/screens/tasks_screen.dart';
 
