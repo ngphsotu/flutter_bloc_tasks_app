@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'drawer.dart';
+import '/models/task.dart';
+import 'my_drawer_screen.dart';
 import '/blocs/bloc_exports.dart';
 import '/widgets/tasks_list.dart';
 
@@ -18,30 +19,21 @@ class _TrashScreenState extends State<TrashScreen> {
   Widget build(BuildContext context) {
     return BlocBuilder<TasksBloc, TasksState>(
       builder: (context, state) {
+        List<Task> taskslist = state.removedTasks;
         return Scaffold(
-          appBar: AppBar(
-            title: const Text('Trash'),
-            // actions: [
-            //   IconButton(
-            //     onPressed: () {},
-            //     icon: const Icon(Icons.add),
-            //   ),
-            // ],
-            // leading: const BackButton(),
-          ),
+          appBar: AppBar(title: const Text('Trash')),
           drawer: const MyDrawer(),
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Center(
                 child: Chip(
-                  label: state.removedTasks.isEmpty ||
-                          state.removedTasks.length == 1
-                      ? Text('${state.removedTasks.length} Task Deleted')
-                      : Text('${state.removedTasks.length} Tasks Deleted'),
+                  label: taskslist.isEmpty || taskslist.length == 1
+                      ? Text('${taskslist.length} Task Deleted')
+                      : Text('${taskslist.length} Tasks Deleted'),
                 ),
               ),
-              TasksList(taskslist: state.removedTasks),
+              TasksList(taskslist: taskslist),
             ],
           ),
         );
