@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '/blocs/bloc_exports.dart';
-import '/screens/trash_screen.dart';
-import '/screens/tasks_screen.dart';
+import 'screen_trash.dart';
+import 'screen_tasks.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
