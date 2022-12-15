@@ -24,13 +24,17 @@ class _TrashScreenState extends State<TrashScreen> {
           appBar: AppBar(
             title: const Text('Trash'),
             actions: [
-              PopupMenuItem(
-                onTap: () => context.read<TasksBloc>().add(DeleteAllTask()),
-                child: TextButton.icon(
-                  onPressed: null,
-                  icon: const Icon(Icons.delete_forever),
-                  label: const Text('Delete all tasks'),
-                ),
+              PopupMenuButton(
+                itemBuilder: (context) => [
+                  PopupMenuItem(
+                    onTap: () => context.read<TasksBloc>().add(DeleteAllTask()),
+                    child: TextButton.icon(
+                      onPressed: null,
+                      icon: const Icon(Icons.delete_forever),
+                      label: const Text('Delete all tasks'),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
